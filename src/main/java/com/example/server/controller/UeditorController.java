@@ -54,6 +54,11 @@ public class UeditorController {
         fileTypes.put(".AVI",2);
     }
 
+
+    /**
+     * ueditor包括文件上传
+     * 获取ueditor相关配置
+     */
     @RequestMapping(value="/config")
     public void config(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType("application/json");
@@ -65,9 +70,9 @@ public class UeditorController {
 
             JSONObject json=new JSONObject(exec);     //json字符串转map
             Map<String,Object> map=new ConcurrentHashMap<>();
-            Iterator it = json.keys();
+            Iterator<String> it = json.keys();
             while (it.hasNext()) {
-                String key = (String) it.next();
+                String key = it.next();
                 Object value = json.get(key);
                 map.put(key, value);
             }

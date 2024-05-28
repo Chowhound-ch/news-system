@@ -12,6 +12,9 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * 对ueditor中各种事件进行处理，提供一些参数配置
+ */
 public class ActionEnter {
 
     private HttpServletRequest request = null;

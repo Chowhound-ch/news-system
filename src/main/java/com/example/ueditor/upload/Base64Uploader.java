@@ -15,7 +15,7 @@ public final class Base64Uploader {
 
         byte[] data = decode(content);
 
-        long maxSize = ((Long) conf.get("maxSize")).longValue();
+        long maxSize = (long) conf.get("maxSize");
 
         if (!validSize(data, maxSize)) {
             return new BaseState(false, AppInfo.MAX_SIZE);
@@ -27,7 +27,7 @@ public final class Base64Uploader {
                 (String) conf.get("filename"));
 
         savePath = savePath + suffix;
-        String physicalPath = (String) conf.get("rootPath") + savePath;
+        String physicalPath = conf.get("rootPath") + savePath;
 
         State storageState = StorageManager.saveBinaryFile(data, physicalPath);
 

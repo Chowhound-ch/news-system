@@ -5,6 +5,9 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * 确定文件上传的路径格式和其对应的服务器中存储位置
+ */
 public class PathFormat {
 
     private static final String TIME = "time";
@@ -30,6 +33,9 @@ public class PathFormat {
 
     }
 
+    /**
+     * 利用正则表达式
+     */
     public static String parse ( String input, String filename ) {
 
         Pattern pattern = Pattern.compile( "\\{([^\\}]+)\\}", Pattern.CASE_INSENSITIVE  );
