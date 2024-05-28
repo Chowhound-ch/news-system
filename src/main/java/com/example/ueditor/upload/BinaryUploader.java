@@ -17,40 +17,24 @@ import java.util.List;
 import java.util.Map;
 
 public class BinaryUploader {
+    public static final String PATH;
+    static {
+        String path = BinaryUploader.class.getResource("").getPath();
+        String endStr = "classes/";
+        PATH = path.substring(0, path.lastIndexOf(endStr) + endStr.length());
+    }
 
     public static final State save(HttpServletRequest request,
                                    Map<String, Object> conf) {
-        // FileItemStream fileStream = null;
-        // boolean isAjaxUpload = request.getHeader( "X_Requested_With" ) != null;
 
         if (!ServletFileUpload.isMultipartContent(request)) {
             return new BaseState(false, AppInfo.NOT_MULTIPART_CONTENT);
         }
 
-        // ServletFileUpload upload = new ServletFileUpload(
-        // 	new DiskFileItemFactory());
-        //
-        // if ( isAjaxUpload ) {
-        //     upload.setHeaderEncoding( "UTF-8" );
-        // }
-
         try {
-            // FileItemIterator iterator = upload.getItemIterator(request);
-            //
-            // while (iterator.hasNext()) {
-            // 	fileStream = iterator.next();
-            //
-            // 	if (!fileStream.isFormField())
-            // 		break;
-            // 	fileStream = null;
-            // }
-            //
-            // if (fileStream == null) {
-            // 	return new BaseState(false, AppInfo.NOTFOUND_UPLOAD_DATA);
-            // }
             MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
             MultipartFile multipartFile = multipartRequest.getFile(conf.get("fieldName").toString());
-            if(multipartFile==null){
+            if(multipartFile == null){
                 return new BaseState(false, AppInfo.NOTFOUND_UPLOAD_DATA);
             }
 
@@ -63,7 +47,7 @@ public class BinaryUploader {
                     originFileName.length() - suffix.length());
             savePath = savePath + suffix;
 
-            long maxSize = ((Long) conf.get("maxSize")).longValue();
+            long maxSize = (Long) conf.get("maxSize");
 
             if (!validType(suffix, (String[]) conf.get("allowFiles"))) {
                 return new BaseState(false, AppInfo.NOT_ALLOW_FILE_TYPE);
@@ -71,9 +55,7 @@ public class BinaryUploader {
 
             savePath = PathFormat.parse(savePath, originFileName);
 
-            //String physicalPath = (String) conf.get("rootPath") + savePath;
-            String basePath=(String) conf.get("basePath");
-            String physicalPath = basePath + savePath;
+            String physicalPath = PATH + savePath.substring(1);
 
             //InputStream is = fileStream.openStream();
             InputStream is = multipartFile.getInputStream();
