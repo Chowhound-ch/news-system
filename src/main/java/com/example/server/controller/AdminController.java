@@ -29,7 +29,6 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * /admin 控制器
  * 返回thymeleaf页面
- * @author ggg1235
  */
 @Controller
 @PreAuthorize("hasRole('ROLE_ADMIN')")

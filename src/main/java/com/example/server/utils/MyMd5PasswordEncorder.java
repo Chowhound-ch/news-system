@@ -7,7 +7,6 @@ import org.springframework.util.DigestUtils;
 /**
  * 自定义加密
  * 密码采用MD5加密验证
- * @author ggg1235
  */
 public class MyMd5PasswordEncorder implements PasswordEncoder {
 

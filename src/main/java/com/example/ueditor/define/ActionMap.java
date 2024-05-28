@@ -5,8 +5,6 @@ import java.util.HashMap;
 
 /**
  * 定义请求action类型
- * @author ggg1235
- *
  */
 @SuppressWarnings("serial")
 public final class ActionMap {

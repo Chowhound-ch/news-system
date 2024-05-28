@@ -15,7 +15,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * SpringSecurity配置 权限控制 过滤器
- * @author ggg1235
  */
 @Configuration
 @EnableWebSecurity

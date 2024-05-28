@@ -13,7 +13,6 @@ import java.util.Map;
 
 /**
  * 配置管理器
- * @author ggg1235
  *
  */
 public final class ConfigManager {

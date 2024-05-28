@@ -10,8 +10,6 @@ import javax.annotation.Resource;
 
 /**
  * 重写UserDetailsService接口,SpringSecurity需要
- * Create By 2019/1/06
- * @author ggg1235
  */
 public class CustomUserServiceImpl implements UserDetailsService {
 

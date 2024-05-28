@@ -8,7 +8,6 @@ import java.util.Date;
 
 /**
  * 文件实体
- * @author ggg1235
  */
 @Entity
 public class File {

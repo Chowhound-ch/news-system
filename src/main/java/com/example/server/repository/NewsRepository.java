@@ -9,7 +9,6 @@ import java.util.List;
 
 /**
  * 新闻Repository
- * @author ggg1235
  */
 
 public interface NewsRepository extends JpaRepository<News,Long> {

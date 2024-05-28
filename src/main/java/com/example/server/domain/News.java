@@ -12,7 +12,6 @@ import java.util.Date;
 
 /**
  * 新闻实体
- * @author ggg1235
  */
 @Entity
 @JsonIgnoreProperties(value={"hibernateLazyInitializer","handler","fieldHandler"})

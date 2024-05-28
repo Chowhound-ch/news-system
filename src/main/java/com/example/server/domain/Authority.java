@@ -8,7 +8,6 @@ import java.util.List;
 
 /**
  * 权限实体
- * @author ggg1235
  */
 @Entity
 public class Authority implements GrantedAuthority{

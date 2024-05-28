@@ -12,8 +12,6 @@ import java.util.Map;
 /**
  * 多状态集合状态
  * 其包含了多个状态的集合, 其本身自己也是一个状态
- * @author ggg1235
- *
  */
 public class MultiState implements State {
 

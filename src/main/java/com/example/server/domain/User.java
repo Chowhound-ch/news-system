@@ -18,7 +18,6 @@ import java.util.List;
 
 /**
  * 用户实体
- * @author ggg1235
  */
 @Entity
 @EntityListeners(AuditingEntityListener.class)

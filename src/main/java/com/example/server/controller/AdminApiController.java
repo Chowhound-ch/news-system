@@ -19,7 +19,6 @@ import java.util.Date;
 /**
  * webApi 控制器
  * 返回json对象
- * @author ggg1235
  */
 
 @RestController

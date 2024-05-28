@@ -22,7 +22,6 @@ import java.util.List;
 /**
  * 新闻前台控制器
  * 返回thymeleaf页面
- * @author ggg1235
  */
 @Controller
 public class MainController {

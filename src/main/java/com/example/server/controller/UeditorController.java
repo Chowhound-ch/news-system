@@ -25,8 +25,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 文件上传统一请求路径
- * Created by ldb on 2019/1/5.
- * @author ggg1235
  */
 
 @Controller

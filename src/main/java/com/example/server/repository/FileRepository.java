@@ -7,7 +7,6 @@ import java.util.List;
 
 /**
  * 文件Repository
- * @author ggg1235
  */
 public interface FileRepository extends JpaRepository<File,Long> {
     List<File> findFileByFileName(String name);

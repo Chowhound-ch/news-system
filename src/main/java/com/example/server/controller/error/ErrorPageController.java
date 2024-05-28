@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 异常页控制器
- * @author ggg1235
  */
 @Controller
 public class ErrorPageController implements ErrorController {

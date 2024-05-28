@@ -26,7 +26,6 @@ import java.util.Map;
 /**
  * 新闻列表、详情控制器
  * 返回thymeleaf页面
- * @author ggg1235
  */
 @Controller
 @RequestMapping(value = "/news")

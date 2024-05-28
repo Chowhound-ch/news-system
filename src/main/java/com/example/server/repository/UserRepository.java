@@ -7,7 +7,6 @@ import java.util.List;
 
 /**
  * 用户Repository
- * @author ggg1235
  */
 
 public interface UserRepository extends JpaRepository<User,Long> {
