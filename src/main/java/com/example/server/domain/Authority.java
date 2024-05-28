@@ -1,5 +1,6 @@
 package com.example.server.domain;
 
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
@@ -10,6 +11,7 @@ import java.util.List;
  * 权限实体
  */
 @Entity
+@NoArgsConstructor
 public class Authority implements GrantedAuthority{
 
     @Id
