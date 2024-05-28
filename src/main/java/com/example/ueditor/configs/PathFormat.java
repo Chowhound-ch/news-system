@@ -19,26 +19,6 @@ public class PathFormat {
 
     private static Date currentDate = null;
 
-    public static String parse ( String input ) {
-
-        Pattern pattern = Pattern.compile( "\\{([^\\}]+)\\}", Pattern.CASE_INSENSITIVE  );
-        Matcher matcher = pattern.matcher(input);
-
-        PathFormat.currentDate = new Date();
-
-        StringBuffer sb = new StringBuffer();
-
-        while ( matcher.find() ) {
-
-            matcher.appendReplacement(sb, PathFormat.getString( matcher.group( 1 ) ) );
-
-        }
-
-        matcher.appendTail(sb);
-
-        return sb.toString();
-    }
-
     /**
      * 格式化路径, 把windows路径替换成标准路径
      * @param input 待格式化的路径
@@ -54,7 +34,7 @@ public class PathFormat {
 
         Pattern pattern = Pattern.compile( "\\{([^\\}]+)\\}", Pattern.CASE_INSENSITIVE  );
         Matcher matcher = pattern.matcher(input);
-        String matchStr = null;
+        String matchStr;
 
         PathFormat.currentDate = new Date();
 
@@ -63,7 +43,7 @@ public class PathFormat {
         while ( matcher.find() ) {
 
             matchStr = matcher.group( 1 );
-            if ( matchStr.indexOf( "filename" ) != -1 ) {
+            if (matchStr.contains("filename")) {
                 filename = filename.replace( "$", "\\$" ).replaceAll( "[\\/:*?\"<>|]", "" );
                 matcher.appendReplacement(sb, filename );
             } else {
