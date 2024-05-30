@@ -38,17 +38,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/register","/login","/index","/static/css/**","/static/js/**","/static/images/**","/static/ueditor/**","/config/**","/config","/static/bootstrap4.1.0/**").permitAll()
-//                .antMatchers("/admin/**","/static/admin/**","/newsAPI/**").hasAnyRole("ROLE_ADMIN")
+        http
+            .authorizeRequests()
+                .antMatchers("/register","/login","/index","/static/css/**","/static/js/**","/static/images/**","/static/ueditor/**","/config/**","/config","/static/bootstrap4.1.0/**")
+                .permitAll()
+//                   .antMatchers("/admin/**","/static/admin/**","/newsAPI/**").hasAnyRole("ROLE_ADMIN")
                 .and()
-                .formLogin().loginPage("/login").failureUrl("/login-error").permitAll()
+            .formLogin()
+                .loginPage("/login")
+                .failureUrl("/login-error")
+                .permitAll()
                 .and()
-                .logout().permitAll()
+            .logout()
+                .permitAll()
                 .and()
-                .headers().frameOptions().disable()
+            .headers()
+                .frameOptions()
+                .disable()
                 .and()
-                .csrf().disable();
+            .csrf()
+                .disable();
     }
 
 }
