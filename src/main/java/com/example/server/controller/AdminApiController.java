@@ -126,7 +126,9 @@ public class AdminApiController {
         String name=user.getloginName();
         User user2=userService.getUserByLoginName(name);
 
-        user.setloginPwd(DigestUtils.md5DigestAsHex(user.getloginPwd().getBytes()));
+        if (user.getloginPwd() != null) {
+            user.setloginPwd(DigestUtils.md5DigestAsHex(user.getloginPwd().getBytes()));
+        }
 
         user.setuserId(user2.getuserId());
         user.setuserCreate(user2.getuserCreate());

@@ -15,17 +15,18 @@ import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class BinaryUploader {
     public static final String PATH;
     static {
-        String path = BinaryUploader.class.getResource("").getPath();
+        String path = Objects.requireNonNull(BinaryUploader.class.getResource("")).getPath();
         String endStr = "classes/";
         PATH = path.substring(0, path.lastIndexOf(endStr) + endStr.length());
     }
 
-    public static final State save(HttpServletRequest request,
-                                   Map<String, Object> conf) {
+    public static State save(HttpServletRequest request,
+                             Map<String, Object> conf) {
 
         if (!ServletFileUpload.isMultipartContent(request)) {
             return new BaseState(false, AppInfo.NOT_MULTIPART_CONTENT);
@@ -70,9 +71,7 @@ public class BinaryUploader {
             }
 
             return storageState;
-            // } catch (FileUploadException e) {
-            // 	return new BaseState(false, AppInfo.PARSE_REQUEST_ERROR);
-        } catch (IOException e) {
+        } catch (IOException ignored) {
         }
         return new BaseState(false, AppInfo.IO_ERROR);
     }

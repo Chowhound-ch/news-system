@@ -124,7 +124,7 @@
         alert("两次输入密码不相同!");
         return false;
       }
-      if (loginPwd.length<6){
+      if (loginPwd !== null && loginPwd !== '' && loginPwd.length<6){
         alert("密码长度需大于6!");
         return false;
       }

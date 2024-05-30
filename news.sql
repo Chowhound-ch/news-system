@@ -10,8 +10,6 @@
  Target Server Type    : MySQL
  Target Server Version : 50722
  File Encoding         : 65001
-
- Date: 23/02/2019 11:13:12
 */
 
 SET NAMES utf8mb4;

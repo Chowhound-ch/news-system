@@ -24,7 +24,7 @@
                 <div class="panel-body">
                     <div class="list-group" th:each="news:${list1}">
                         <a th:href="@{'~/news/detail/'+${news.getnewsId()}}" class="list-group-item">
-                            <h6 th:text="${news.getnewsTitle()}"></h6>
+                            <h5 th:text="${news.getnewsTitle()}"></h5>
                             <p th:text="${news.getnewsWord()}"></p>
                         </a>
                     </div>
@@ -40,7 +40,7 @@
                 <div class="panel-body">
                     <div class="list-group" th:each="news:${list2}">
                         <a th:href="@{'~/news/detail/'+${news.getnewsId()}}" class="list-group-item">
-                            <h6 th:text="${news.getnewsTitle()}"></h6>
+                            <h5 th:text="${news.getnewsTitle()}"></h5>
                             <p th:text="${news.getnewsWord()}"></p>
                         </a>
                     </div>
@@ -57,7 +57,7 @@
                 <div class="panel-body">
                     <div class="list-group" th:each="news:${list3}">
                         <a th:href="@{'~/news/detail/'+${news.getnewsId()}}" class="list-group-item">
-                            <h6 th:text="${news.getnewsTitle()}"></h6>
+                            <h5 th:text="${news.getnewsTitle()}"></h5>
                             <p th:text="${news.getnewsWord()}"></p>
                         </a>
                     </div>
@@ -73,7 +73,7 @@
                 <div class="panel-body">
                     <div class="list-group" th:each="news:${list4}">
                         <a th:href="@{'~/news/detail/'+${news.getnewsId()}}" class="list-group-item">
-                            <h6 th:text="${news.getnewsTitle()}"></h6>
+                            <h5 th:text="${news.getnewsTitle()}"></h5>
                             <p th:text="${news.getnewsWord()}"></p>
                         </a>
                     </div>
@@ -88,7 +88,7 @@
                 <div class="panel-body">
                     <div class="list-group" th:each="news:${list5}">
                         <a th:href="@{'~/news/detail/'+${news.getnewsId()}}" class="list-group-item">
-                            <h6 th:text="${news.getnewsTitle()}"></h6>
+                            <h5 th:text="${news.getnewsTitle()}"></h5>
                             <p th:text="${news.getnewsWord()}"></p>
                         </a>
                     </div>

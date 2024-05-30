@@ -19,9 +19,6 @@ public final class ConfigManager {
 
     private final String rootPath;
     private final String originalPath;
-    private final String contextPath;
-    private static final String configFileName = "config.json";
-    private String parentPath = null;
     private JSONObject jsonConfig = null;
     // 涂鸦上传filename定义
     private final static String SCRAWL_FILE_NAME = "scrawl";
@@ -36,7 +33,6 @@ public final class ConfigManager {
         rootPath = rootPath.replace( "\\", "/" );
 
         this.rootPath = rootPath;
-        this.contextPath = contextPath;
 
         if ( contextPath.length() > 0 ) {
             this.originalPath = this.rootPath + uri.substring( contextPath.length() );
@@ -145,7 +141,7 @@ public final class ConfigManager {
 
     }
 
-    private void initEnv () throws FileNotFoundException, IOException {
+    private void initEnv () throws IOException {
 
         File file = new File( this.originalPath );
 
@@ -153,30 +149,17 @@ public final class ConfigManager {
             file = new File( file.getAbsolutePath() );
         }
 
-        this.parentPath = file.getParent();
-
         //String configContent = this.readFile( this.getConfigPath() );
         String configContent = this.filter(IOUtils.toString(this.getClass().getClassLoader().getResourceAsStream("config.json")));
 
         try{
-            JSONObject jsonConfig = new JSONObject( configContent );
-            this.jsonConfig = jsonConfig;
+            this.jsonConfig = new JSONObject( configContent );
         } catch ( Exception e ) {
             this.jsonConfig = null;
         }
 
     }
 
-
-    private String getConfigPath () {
-        //return this.parentPath + File.separator + ConfigManager.configFileName;
-        try {
-            //获取classpath下的config.json路径
-            return this.getClass().getClassLoader().getResource("config.json").toURI().getPath();
-        } catch (URISyntaxException e) {
-            return null;
-        }
-    }
 
     private String[] getArray ( String key ) {
 
